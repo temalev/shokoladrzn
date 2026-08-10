@@ -17,6 +17,7 @@ npm run generate
 npx serve .output/public
 ```
 
+
 ## Публикация на GitHub Pages
 
 1. Залейте репозиторий на GitHub (ветка `main` или `master`).

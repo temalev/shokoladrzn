@@ -33,23 +33,23 @@ const second = photo('turbo-collagen')
         </p>
 
         <div class="btn-row hero__cta" data-reveal data-reveal-delay="1400">
-          <a :href="site.phoneHref" class="btn btn--primary">
+          <a v-if="site.booking" :href="site.booking" target="_blank" rel="noopener" class="btn btn--primary">
             <span class="btn__label">
-              {{ site.phone }}
+              Записаться онлайн
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </span>
           </a>
-          <a href="#solariums" class="btn btn--ghost">
-            <span class="btn__label">Выбрать солярий</span>
+          <a :href="site.phoneHref" class="btn btn--ghost">
+            <span class="btn__label">{{ site.phone }}</span>
           </a>
         </div>
 
         <ul class="hero__meta" data-reveal data-reveal-delay="1550">
           <li><b>Пн–Пт</b> 11:00–20:00</li>
           <li><b>Сб–Вс</b> 12:00–18:00</li>
-          <li class="hero__meta-accent">Можно без записи</li>
+          <li class="hero__meta-accent">Онлайн-запись или без записи</li>
         </ul>
       </div>
 

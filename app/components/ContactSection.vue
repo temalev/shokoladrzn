@@ -49,20 +49,24 @@ const socials = computed(() =>
                 <b class="tabular">{{ h.time }}</b>
               </li>
             </ul>
-            <p class="small muted">Предварительная запись не обязательна. Хотите конкретное время или конкретный солярий — позвоните заранее.</p>
+            <p class="small muted">Предварительная запись не обязательна. Хотите конкретное время или конкретный солярий — запишитесь онлайн или позвоните заранее.</p>
           </div>
 
           <div class="card card--pad ct__card ct__card--phone" data-reveal data-reveal-delay="180">
-            <p class="micro">Телефон</p>
+            <p class="micro">Запись и связь</p>
             <a :href="site.phoneHref" class="ct__phone display tabular">{{ site.phone }}</a>
             <div class="btn-row">
-              <a :href="site.phoneHref" class="btn btn--primary btn--sm">
+              <a v-if="site.booking" :href="site.booking" target="_blank" rel="noopener" class="btn btn--primary btn--sm">
+                <span class="btn__label">Записаться онлайн</span>
+              </a>
+              <a :href="site.phoneHref" class="btn btn--sm" :class="site.booking ? 'btn--ghost' : 'btn--primary'">
                 <span class="btn__label">Позвонить</span>
               </a>
               <a :href="site.maps.yandexRoute" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">
                 <span class="btn__label">Маршрут</span>
               </a>
             </div>
+            <p v-if="site.booking" class="small muted ct__booknote">Онлайн-запись через DIKIDI — выбрать день и время можно в любое время суток.</p>
             <div v-if="socials.length" class="ct__soc">
               <a v-for="s in socials" :key="s.label" :href="s.href" target="_blank" rel="noopener" class="chip">{{ s.label }}</a>
             </div>

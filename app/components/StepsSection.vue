@@ -26,7 +26,10 @@ import { site, steps } from '~/data/site'
       <div class="steps__cta" data-reveal>
         <p class="display d-3">Хотите конкретное время или конкретный солярий?</p>
         <div class="btn-row">
-          <a :href="site.phoneHref" class="btn btn--primary">
+          <a v-if="site.booking" :href="site.booking" target="_blank" rel="noopener" class="btn btn--primary">
+            <span class="btn__label">Записаться онлайн</span>
+          </a>
+          <a :href="site.phoneHref" class="btn btn--ghost">
             <span class="btn__label">{{ site.phone }}</span>
           </a>
           <a :href="site.maps.yandexRoute" target="_blank" rel="noopener" class="btn btn--ghost">

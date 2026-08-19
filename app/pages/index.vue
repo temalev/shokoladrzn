@@ -6,7 +6,7 @@ const siteUrl = (useRuntimeConfig().public.siteUrl as string) || ''
 
 const title = 'Солярий в Рязани — студия загара ШОКОЛАД62, ул. Ленина, 21'
 const description =
-  'Студия загара ШОКОЛАД62 в центре Рязани: вертикальный солярий, мощный турбосолярий с коллагеновыми лампами и горизонтальный. 40 ₽ за минуту, крем и все расходники включены. Можно без записи. Ул. Ленина, 21, ТЦ «АТРОН СИТИ», 6 этаж.'
+  'Студия загара ШОКОЛАД62 в центре Рязани: вертикальный солярий, мощный турбосолярий с коллагеновыми лампами и горизонтальный. 40 ₽ за минуту, крем и все расходники включены. Онлайн-запись или без записи. Ул. Ленина, 21, ТЦ «АТРОН СИТИ», 6 этаж.'
 
 useSeoMeta({
   title,
@@ -53,6 +53,23 @@ useHead({
               addressCountry: 'RU',
             },
             areaServed: { '@type': 'City', name: 'Рязань' },
+            sameAs: site.booking ? [site.booking] : undefined,
+            potentialAction: site.booking
+              ? {
+                  '@type': 'ReserveAction',
+                  name: 'Записаться в солярий онлайн',
+                  target: {
+                    '@type': 'EntryPoint',
+                    urlTemplate: site.booking,
+                    inLanguage: 'ru-RU',
+                    actionPlatform: [
+                      'http://schema.org/DesktopWebPlatform',
+                      'http://schema.org/MobileWebPlatform',
+                    ],
+                  },
+                  result: { '@type': 'Reservation', name: 'Сеанс в солярии' },
+                }
+              : undefined,
             openingHoursSpecification: [
               {
                 '@type': 'OpeningHoursSpecification',
@@ -97,7 +114,7 @@ const marquee = [
   'солярий в центре Рязани',
   '40 ₽ за минуту',
   '3 аппарата',
-  'без записи',
+  'онлайн-запись',
   'турбо с коллагеновыми лампами',
   'всё включено',
 ]
@@ -108,6 +125,7 @@ const marquee2 = [
   'вертикальный · турбо · горизонтальный',
   'крем, очки, стикини — в цене',
   'поможем новичкам',
+  'можно без записи',
 ]
 </script>
 

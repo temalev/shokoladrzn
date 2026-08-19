@@ -38,7 +38,10 @@ onBeforeUnmount(() => {
 
         <div class="hd__actions">
           <a :href="site.phoneHref" class="hd__phone no-mobile">{{ site.phone }}</a>
-          <a :href="site.phoneHref" class="btn btn--primary btn--sm hd__cta">
+          <a v-if="site.booking" :href="site.booking" target="_blank" rel="noopener" class="btn btn--primary btn--sm hd__cta">
+            <span class="btn__label">Записаться</span>
+          </a>
+          <a v-else :href="site.phoneHref" class="btn btn--primary btn--sm hd__cta">
             <span class="btn__label">Позвонить</span>
           </a>
           <button class="burger" :class="{ 'is-open': open }" :aria-expanded="open" aria-label="Меню" @click="open = !open">
@@ -62,6 +65,9 @@ onBeforeUnmount(() => {
             >{{ item.label }}</a>
           </nav>
           <div class="menu__foot" :style="{ '--d': '400ms' }">
+            <a v-if="site.booking" :href="site.booking" target="_blank" rel="noopener" class="btn btn--primary menu__book" @click="open = false">
+              <span class="btn__label">Записаться онлайн</span>
+            </a>
             <a :href="site.phoneHref" class="menu__phone">{{ site.phone }}</a>
             <p class="small muted">{{ site.address.full }}</p>
             <p class="small muted">Пн–Пт 11:00–20:00 · Сб–Вс 12:00–18:00</p>
@@ -280,6 +286,11 @@ html.is-scrolled .hd__bar {
   border-top: 1px solid var(--line-soft);
   animation: menuLink 0.75s var(--ease) both;
   animation-delay: var(--d);
+}
+
+.menu__book {
+  width: fit-content;
+  margin-bottom: 0.7rem;
 }
 
 .menu__phone {

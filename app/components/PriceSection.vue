@@ -108,7 +108,12 @@ const money = (n: number) => n.toLocaleString('ru-RU')
               <p class="calc__sum display tabular">≈ {{ money(shown) }} ₽</p>
               <p class="small muted">{{ minutes }} мин × {{ site.pricePerMinute }} ₽</p>
             </div>
-            <a :href="site.phoneHref" class="btn btn--primary">
+            <a
+              :href="site.booking || site.phoneHref"
+              :target="site.booking ? '_blank' : undefined"
+              :rel="site.booking ? 'noopener' : undefined"
+              class="btn btn--primary"
+            >
               <span class="btn__label">Записаться</span>
             </a>
           </div>

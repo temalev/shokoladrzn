@@ -48,6 +48,7 @@ const seo = [
           <a href="#how" class="ft__link">Как проходит визит</a>
           <a href="#faq" class="ft__link">Частые вопросы</a>
           <a href="#contacts" class="ft__link">Контакты</a>
+          <a v-if="site.booking" :href="site.booking" target="_blank" rel="noopener" class="ft__link">Онлайн-запись</a>
         </div>
 
         <div class="ft__col">
@@ -57,7 +58,10 @@ const seo = [
           <p class="small muted">
             <span v-for="h in site.hours" :key="h.short">{{ h.short }} {{ h.time }}<br></span>
           </p>
-          <a :href="site.maps.yandexRoute" target="_blank" rel="noopener" class="link-u small">Построить маршрут</a>
+          <div class="ft__acts">
+            <a v-if="site.booking" :href="site.booking" target="_blank" rel="noopener" class="link-u small">Записаться онлайн</a>
+            <a :href="site.maps.yandexRoute" target="_blank" rel="noopener" class="link-u small">Построить маршрут</a>
+          </div>
         </div>
       </div>
 
@@ -153,6 +157,13 @@ const seo = [
   background-clip: text;
   color: transparent;
   width: fit-content;
+}
+
+.ft__acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.2rem;
+  margin-top: 0.15rem;
 }
 
 .ft__seo {

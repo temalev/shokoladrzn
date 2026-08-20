@@ -131,7 +131,7 @@ export const steps = [
 
 export const gallery = [
   { image: 'neon-sign', caption: 'Неоновая вывеска на входе' },
-  { image: 'turbo-collagen', caption: 'Турбосолярий: белые и красные коллагеновые лампы' },
+  { image: 'turbo-collagen', caption: 'Турбосолярий: синие и красные коллагеновые лампы' },
   { image: 'lounge', caption: 'Зона ожидания и переодевания' },
   { image: 'room-blue', caption: 'Кабинет с горизонтальным солярием' },
   { image: 'horizontal-lamps', caption: 'Лампы горизонтального солярия вблизи' },

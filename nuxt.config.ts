@@ -25,6 +25,8 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
         { name: 'theme-color', content: '#0a0705' },
         { name: 'format-detection', content: 'telephone=no' },
+        // Подтверждение прав в Яндекс.Вебмастере
+        { name: 'yandex-verification', content: 'b71b02ab5204100f' },
       ],
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },

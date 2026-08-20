@@ -40,6 +40,9 @@ export const site = {
     { days: 'Суббота — воскресенье', time: '12:00 — 18:00', short: 'Сб–Вс' },
   ],
 
+  // ID счётчика Яндекс.Метрики. Пусто — счётчик не подключается.
+  metrikaId: '111803796',
+
   pricePerMinute: 40,
   creamPrice: 150,
 } as const

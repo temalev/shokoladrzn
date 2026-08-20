@@ -51,6 +51,7 @@ Workflow сам подставляет правильные пути:
 | Секции | `app/components/*Section.vue`, `StudioGallery.vue` |
 | Шапка, футер, мобильная панель действий, прелоадер | `app/components/App*.vue`, `MobileBar.vue` |
 | Движок анимаций (появление при скролле, параллакс, счётчики) | [`app/plugins/motion.client.ts`](app/plugins/motion.client.ts) |
+| Яндекс.Метрика | [`app/data/site.ts`](app/data/site.ts) → `metrikaId`, логика в [`app/plugins/metrika.client.ts`](app/plugins/metrika.client.ts) |
 
 ### Телефон
 
@@ -61,6 +62,24 @@ Workflow сам подставляет правильные пути:
 
 В `app/data/site.ts` поля `whatsapp`, `telegram`, `vk`, `instagram` пустые — кнопки
 скрыты. Впишите ссылку — кнопка появится в контактах и футере автоматически.
+
+### Яндекс.Метрика
+
+Счётчик **111803796** подключён. ID лежит в `app/data/site.ts` → `metrikaId`; если
+оставить поле пустым, скрипт Метрики на сайт не попадёт вообще.
+
+Параметры init повторяют официальный сниппет: `ssr`, `webvisor`, `clickmap`,
+`ecommerce: 'dataLayer'`, `referrer`, `url`, `accurateTrackBounce`, `trackLinks`.
+Вебвизор записывает действия посетителей — если он не нужен, уберите `webvisor: true`
+в [`app/plugins/metrika.client.ts`](app/plugins/metrika.client.ts).
+
+Плюс сразу отправляются две JS-цели — создайте их в Метрике («Настройка» → «Цели» →
+тип «JavaScript-событие») с такими идентификаторами:
+
+| Идентификатор цели | Когда срабатывает |
+| --- | --- |
+| `booking_click` | клик по любой кнопке онлайн-записи |
+| `phone_click` | клик по номеру телефона |
 
 ## Фотографии
 

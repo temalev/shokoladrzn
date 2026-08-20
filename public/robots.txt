@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# После привязки домена укажите адрес карты сайта, например:
-# Sitemap: https://example.ru/sitemap.xml
+Sitemap: https://shocoladrzn.ru/sitemap.xml
